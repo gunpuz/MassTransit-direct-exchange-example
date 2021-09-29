@@ -51,14 +51,18 @@ class DummyWorker():
                         self.__logger.info(f"Work item received: {json.dumps(message_body, sort_keys=True, indent=4)}")
 
                         response = json.dumps({
-                            "bar":"bar"
+                            "bar":"it works"
                         }).encode()
 
                         await channel.default_exchange.publish(
                             Message(
                                 body=response,
                                 content_type="application/json",
-                                correlation_id=message.correlation_id
+                                correlation_id=message.correlation_id,
+                                headers={
+                                    'RequestId': message.headers["RequestId"],
+                                    'ConversationId': message.headers["ConversationId"]
+                                }
                             ),
                             routing_key=message.reply_to
                         )
