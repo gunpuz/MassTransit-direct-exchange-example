@@ -17,6 +17,16 @@ RabbitMQ(default-exchange)
 
 ```
 
+# How to run
+
+1. run pythonworker.py
+2. build in Debug mode and run DummyApiService
+3. Open https://localhost:5551/swagger/index.html and make request
+
+# Prerequisites
+
+## RabbitMQ
+
 Install RabbitMQ
 
 ```Shell
