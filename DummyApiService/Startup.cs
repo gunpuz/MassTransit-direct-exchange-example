@@ -48,7 +48,9 @@ namespace DummyApiService
                     config.ConfigureEndpoints(context);
 
                     config.ClearMessageDeserializers();
-                    config.UseRawJsonSerializer();
+                    config.UseRawJsonSerializer(
+                        MassTransit.Serialization.RawJsonSerializerOptions.AddTransportHeaders   
+                    );
                 });
             });
 

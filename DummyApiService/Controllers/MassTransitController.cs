@@ -25,7 +25,7 @@ namespace DummyApiService.Controllers
         public async Task<ActionResult> Get()
         {
             using var request = client.Create(new Models.Request() { foo = "baz" });
-            request.UseExecute(x => x.AddRequestHeaders());
+            request.UseExecute(x => x.AddRequestHeaders<Models.Response>());
             var translationResponse = await request.GetResponse<Models.Response>();
 
             return Ok(translationResponse.Message);

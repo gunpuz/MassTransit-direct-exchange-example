@@ -1,5 +1,6 @@
 # MassTransit example using custom direct RabbitMQ exchanges
 
+This repository shows minimal example how to integrate masstransit with other languages like Python via direct exchanges.
 
 ```
 

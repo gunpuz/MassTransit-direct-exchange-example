@@ -60,7 +60,8 @@ class DummyWorker():
                                 content_type="application/json",
                                 correlation_id=message.correlation_id,
                                 headers={
-                                    'RequestId': message.headers["RequestId"]
+                                    'RequestId': message.headers["RequestId"],
+                                    'MT-MessageType': message.headers["ReturnMessageType"]
                                 }
                             ),
                             routing_key=message.reply_to
